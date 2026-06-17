@@ -1,67 +1,133 @@
-# Reversi Game Implementation
+# Reversi Game – Java OOP Project
 
-This project involves creating an expanded version of the strategic board game **Reversi**, implemented on an 8x8 board with special disc types. The goal is to apply Object-Oriented Programming (OOP) principles while creating a functional and interactive game that follows the rules specified.
+## Overview
 
-## Project Structure
+This project is an extended implementation of the strategic board game **Reversi**, developed in Java using Object-Oriented Programming principles.
 
-The provided files include:
+The game is played on an 8x8 board and includes the standard Reversi mechanics, along with additional special disc types and AI-controlled players. The implementation focuses on clean game logic, legal move validation, turn management, disc flipping behavior, undo functionality, and integration with a graphical user interface.
 
-- `GUI_for_chess_like_games` - Graphical User Interface for the game.
-- `PlayableLogic` - Interface defining the game's rules.
-- `Player` - Base class for players.
-- `AIPlayer` - Base class for AI-controlled players.
-- `Disc` - Abstract class representing a disc on the board.
-- `Main` - Main class to run the game.
-- Sample game file - Demonstrates basic gameplay.
+This project was developed as part of an Object-Oriented Programming course and demonstrates practical use of inheritance, interfaces, encapsulation, polymorphism, and structured software design.
 
-For additional details, refer to the [assignment PDF](מימוש%20משחק%20רברסי.pdf) included in this repository.
+## Main Features
 
-## Classes to Implement
+* Full Reversi game logic on an 8x8 board
+* Legal move validation
+* Turn management between two players
+* Disc placement and opponent disc flipping
+* Special disc types with custom behavior
+* AI players with different move-selection strategies
+* Undo functionality for human-player games
+* Game reset support
+* Compatibility with a provided graphical user interface
 
-### 1. GameLogic
-- Implements the `PlayableLogic` interface.
-- Manages game state, rules, board, and player turns.
-- Handles placing and flipping opponent discs.
+## Special Disc Types
 
-### 2. Discs
-Implement `Disc` interface for different disc types:
-- **SimpleDisc** - Regular disc that follows standard Reversi rules.
-- **UnflippableDisc** - Special disc that cannot be flipped once placed.
-- **BombDisc** - When flipped, it causes surrounding discs to flip, potentially triggering other bombs.
+The game supports several types of discs, each with different behavior:
 
-### 3. Helper Classes
-- **Position** - Represents a position on the board.
-- **Move** - Represents a game move and supports undo functionality.
+### SimpleDisc
 
-### 4. AI Players
-- **RandomAI** - Randomly selects a legal move.
-- **GreedyAI** - Chooses the move that flips the maximum number of opponent discs.
+A regular disc that follows the standard Reversi rules.
+
+### UnflippableDisc
+
+A special disc that cannot be flipped once it is placed on the board.
+
+### BombDisc
+
+A special disc that, when flipped, can trigger additional flips of surrounding discs. This behavior may also activate nearby bomb discs, creating chain reactions.
+
+## AI Players
+
+The project includes AI-controlled players with different strategies:
+
+### RandomAI
+
+Selects a legal move randomly from the available options.
+
+### GreedyAI
+
+Chooses the move that flips the maximum number of opponent discs.
+
+These AI players demonstrate how different decision-making strategies can be implemented using object-oriented design.
+
+## Key Classes
+
+### GameLogic
+
+Implements the main game rules and manages the current game state, including the board, player turns, legal moves, disc placement, flipping logic, undo functionality, and reset behavior.
+
+### PlayableLogic
+
+An interface that defines the expected behavior of the game logic.
+
+### Player
+
+Represents a game player and stores player-related information.
+
+### AIPlayer
+
+An abstract base class for AI-controlled players.
+
+### Disc
+
+Represents a disc on the board and serves as the base abstraction for the different disc types.
+
+### Position
+
+Represents a position on the game board.
+
+### Move
+
+Represents a move in the game and supports tracking information needed for undo operations.
+
+### Main
+
+The entry point used to run the game.
 
 ## Game Rules
 
-- The objective is to finish with the highest number of discs in your color.
-- The game begins with four discs in the center.
-- Three types of discs exist: Regular, Unflippable, and Bomb (special flipping rules apply).
-- The game ends when no legal moves are available for the next player.
+* The game starts with four discs placed in the center of the board.
+* Players take turns placing discs on legal positions.
+* A legal move must capture at least one opponent disc.
+* Captured opponent discs are flipped according to the rules of the placed disc and the affected disc types.
+* The game ends when no legal moves are available.
+* The winner is the player with the highest number of discs on the board.
 
-## Additional Requirements
+## Technologies Used
 
-- **AI Players**: Implement AI players using `RandomAI` and `GreedyAI`. AI should handle legal moves intelligently and can be extended for bonus points with a more advanced AI player.
-- **Undo Functionality**: Allow undoing moves for games with human players only.
-- **Game Reset**: Implement a reset feature to restart the game.
+* Java
+* Object-Oriented Programming
+* Inheritance and Interfaces
+* Game Logic
+* AI Strategy Implementation
+* GUI Integration
 
-## Submission
+## What I Learned
 
-- Submit all files as a ZIP file named `ID1_ID2.zip` (replace with your student IDs).
+This project strengthened my understanding of object-oriented design and helped me practice building a structured Java application with multiple interacting classes.
 
-## Coding Guidelines
+Through this project, I gained experience with:
 
-- Follow OOP principles such as inheritance, encapsulation, and method overloading.
-- Document all classes and methods using JavaDoc.
-- Implement error handling and consider edge cases.
-- Ensure compatibility with the provided GUI.
-- Maintain clean and documented code style.
+* Designing class hierarchies
+* Using interfaces and abstract classes
+* Implementing complex game rules
+* Handling edge cases in board-game logic
+* Managing game state and undo operations
+* Implementing simple AI strategies
+* Writing clean and maintainable Java code
 
----
+## How to Run
 
-Good luck!
+Open the project in a Java IDE such as IntelliJ IDEA or Eclipse, then run the `Main` class.
+
+Make sure all required project files, including the GUI files, are included in the project structure.
+
+## Future Improvements
+
+Possible future improvements include:
+
+* Adding a more advanced AI player
+* Improving the graphical interface
+* Adding score history and game statistics
+* Supporting different board sizes
+* Adding automated tests for the main game logic
